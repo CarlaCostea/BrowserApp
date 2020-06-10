@@ -1,7 +1,11 @@
 {
   "expo": {
-    "name": "BrowserApp",
-    "slug": "BrowserApp",
+    "sdkVersion": "35.0.0",
+    "name": "InvoiceManager",
+    "slug": "InvoiceManager",
+    "android": {
+      "package": "com.sohagfaruque.xxxx"
+    },
     "platforms": [
       "ios",
       "android",
@@ -9,7 +13,7 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/iconEye.png",
+    "icon": "./assets/logo.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",

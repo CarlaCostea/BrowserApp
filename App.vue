@@ -1,6 +1,7 @@
 <template>
-    <web-view :source="{uri:'https://invoicemanager-a542d.firebaseio.com/user/name.json?access_token=${token}'}" />
-    
+
+    <web-view :source="{uri:'https://invoicemanager.ro/'}" />  
+
 </template>
 
 <script>
@@ -16,11 +17,21 @@ import { WebView } from "react-native-webview";
     messagingSenderId: "758688562180",
     appId: "1:758688562180:android:19e6c4a66b124727"
   };
-  // Initialize Firebase
-  const app = firebase.initializeApp(firebaseConfig);
+
+//const app = firebase.initializeApp(firebaseConfig);
   const provider = new firebase.auth.GoogleAuthProvider();
 
+var FirebaseTokenGenerator = require("firebase-token-generator");
+var tokenGenerator = new FirebaseTokenGenerator("<YOUR_FIREBASE_SECRET>");
+var token = tokenGenerator.createToken({uid: "1", some: "arbitrary", data: "here"});
+
+
 export default {
+  data: function() {
+    return{
+      token
+    }
+  },
   name: "myComponent",
   components: {
     "web-view": WebView
@@ -31,9 +42,5 @@ export default {
     }
   }
 }
-
-var FirebaseTokenGenerator = require("firebase-token-generator");
-var tokenGenerator = new FirebaseTokenGenerator("<YOUR_FIREBASE_SECRET>");
-var token = tokenGenerator.createToken({uid: "1", some: "arbitrary", data: "here"});
 
 </script>
